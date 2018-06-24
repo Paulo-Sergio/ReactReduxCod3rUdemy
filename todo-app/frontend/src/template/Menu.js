@@ -6,7 +6,7 @@ class Menu extends Component {
 			<nav className='navbar navbar-inverse bg-inverse'>
 				<div className='container'>
 					<div className='navbar-header'>
-						<a className='navbar-brand' href="todos">
+						<a className='navbar-brand' href="/">
 							<i className='fa fa-calendar-check-o'></i> TodoApp
 						</a>
 					</div>
