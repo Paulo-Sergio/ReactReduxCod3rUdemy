@@ -9,9 +9,11 @@ class TodoList extends Component {
       return (
         list.map(todo => (
           <tr key={todo._id}>
-            <td>{todo.description}</td>
+            <td className={todo.done ? 'markedAsDone': ''}>{todo.description}</td>
             <td>
-              <IconButton style='danger' icon='trash-o' onClick={() => this.props.handleRemove(todo)} />
+              <IconButton style='success' hide={todo.done} icon='check' onClick={() => this.props.handleMarkAsDone(todo)} />
+              <IconButton style='warning' hide={!todo.done} icon='undo' onClick={() => this.props.handleMarkAsPending(todo)} />
+              <IconButton style='danger' hide={!todo.done} icon='trash-o' onClick={() => this.props.handleRemove(todo)} />
             </td>
           </tr>
         ))

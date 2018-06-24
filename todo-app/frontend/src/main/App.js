@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../../node_modules/font-awesome/css/font-awesome.min.css'
+
+import '../template/custom.css'
 import Menu from '../template/Menu'
 import Home from '../home/Home'
 import Todo from '../todo/Todo'

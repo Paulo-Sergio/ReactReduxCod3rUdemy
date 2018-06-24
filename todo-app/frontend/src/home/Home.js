@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import PageHeader from '../template/PageHeader'
-
 class Home extends Component {
   render() {
     return (
