@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import IconButton from '../template/IconButton'
 
@@ -9,7 +10,7 @@ class TodoList extends Component {
       return (
         list.map(todo => (
           <tr key={todo._id}>
-            <td className={todo.done ? 'markedAsDone': ''}>{todo.description}</td>
+            <td className={todo.done ? 'markedAsDone' : ''}>{todo.description}</td>
             <td>
               <IconButton style='success' hide={todo.done} icon='check' onClick={() => this.props.handleMarkAsDone(todo)} />
               <IconButton style='warning' hide={!todo.done} icon='undo' onClick={() => this.props.handleMarkAsPending(todo)} />
@@ -35,4 +36,7 @@ class TodoList extends Component {
   }
 }
 
-export default TodoList;
+const mapStateToProps = state => ({ list: state.todo.list })
+
+export default connect(mapStateToProps)(TodoList);
+//export default TodoList;
