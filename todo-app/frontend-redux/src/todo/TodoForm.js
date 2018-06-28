@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import Grid from '../template/Grid'
 import IconButton from '../template/IconButton'
+import { changeDescription } from './todoActions'
 
 class TodoForm extends Component {
   render() {
@@ -12,7 +14,7 @@ class TodoForm extends Component {
           <input id='description'
             className='form-control'
             placeholder='Adicione uma tarefa'
-            onChange={this.props.handleChange}
+            onChange={this.props.changeDescription}
             value={this.props.description} />
         </Grid>
 
@@ -27,6 +29,7 @@ class TodoForm extends Component {
 }
 
 const mapStateToProps = state => ({ description: state.todo.description })
+const mapDispatchToProps = dispach => bindActionCreators({changeDescription}, dispach)
 
-export default connect(mapStateToProps)(TodoForm);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
 //export default TodoForm;
