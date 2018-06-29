@@ -9,7 +9,10 @@ import App from './main/App';
 import reducers from './main/reducers'
 import registerServiceWorker from './registerServiceWorker';
 
-const store = applyMiddleware(promise)(createStore)(reducers)
+// debugger no chrome (não necessario em prod)
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = applyMiddleware(promise)(createStore)(reducers, devTools)
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();
