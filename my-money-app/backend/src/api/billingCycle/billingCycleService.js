@@ -1,9 +1,13 @@
 const BillingCycle = require('./billingCycle')
+const errorHandler = require('../commons/errorHandler')
 
 // metodos a serão usados pelo "node-restful"
 BillingCycle.methods(['get', 'post', 'put', 'delete'])
 // para RETORNAR OBJ ATUALIZADO e validar no verbo HTTP PUT
 BillingCycle.updateOptions({ new: true, runValidators: true })
+// aplicando middleware de errorHandler
+BillingCycle.after('post', errorHandler)
+BillingCycle.after('put', errorHandler)
 
 // nova rota de count, não precisa fazer o 'register', pois já é feito routes.js (http://localhost:3003/api/billingCycles/count)
 BillingCycle.route('count', (req, res, next) => {
